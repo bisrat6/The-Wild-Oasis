@@ -12,8 +12,8 @@ export function useEditCabin() {
         queryKey: ["cabins"],
       });
     },
-    onError: () => {
-      toast.error("Faild to create cabin");
+    onError: (err) => {
+      toast.error(err.message);
     },
   });
   return { isEditing, editCabin };
