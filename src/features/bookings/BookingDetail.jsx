@@ -16,6 +16,7 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useBooking } from "./useBooking";
 import { useDeleteBooking } from "./useDeleteBooking";
 import BookingDataBox from "./BookingDataBox";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ function BookingDetail() {
   const { deleteBooking, isDeleteing: isDeletingBooking } = useDeleteBooking();
 
   if (isLoading) return <Spinner />;
+  if(!booking) return <Empty resourceName="booking"/>
 
   const { status, id: bookingId } = booking;
 
